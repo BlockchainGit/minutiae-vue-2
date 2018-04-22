@@ -1,72 +1,30 @@
 <template>
   <v-layout>
-    <v-card contextual-style="dark">
+    <div id="note-cards" v-for='note in
+[{"cost":"10.00","status":"available","valueUnit":"mBTC","costUnit":"NZD","value":"1.00","addr":"13pAaEsDBjYLhkkAFQpdNGMFoYHdLYEc6f"},{"costUnit":"NZD","value":"1.00","cost":"10.00","status":"available","valueUnit":"mBTC","addr":"14ZFBbsWmL8FW3XrG2JX45dxBA8UKavsPW"},{"costUnit":"NZD","value":"1.00","cost":"10.00","status":"available","valueUnit":"mBTC","addr":"1CWu2kd7TkUmRc8d28yLy2aLb62EUF2kvj"},{"value":"1.00","cost":"10.00","status":"available","valueUnit":"mBTC","costUnit":"NZD","addr":"1LnegwJiuyfmoF8kiqvx8dsaQgjm3fgHM2"},{"costUnit":"NZD","value":"1.00","cost":"10.00","status":"available","valueUnit":"mBTC","addr":"1tiaC6mdPVRbtQAhFXgFZQ81HVpp3T7zo"}]
+'>
+    <v-card contextual-style="dark" :class="'status-' + note.status + ' currency-' + note.valueUnit">
       <span slot="header">
-        Welcome!
+        {{ note.status }}
       </span>
       <div slot="body">
-        <p>
-          Get started with the Vue 2 boilerplate
-        </p>
-        <p>
-          For questions, contact me:
-        </p>
-        <p>
-          <a
-            class="btn btn-outline-primary"
-            href="http://gitter.im/petervmeijgaard"
-            target="_blank"
-          >
-            <i
-              class="fa fa-github fa-fw"
-              aria-hidden="true"
-            ></i>
-            <span class="pl-2">
-              Gitter
-            </span>
+        <dl>
+          <dt class="addr">Address</dt>
+          <dd class="addr">{{ note.addr }}</dd>
+          <dt class="cost">Cost</dt>
+          <dd class="cost">{{ note.cost }} {{ note.costUnit }}</dd>
+          <dt class="value">Value</dt>
+          <dd class="value">{{ note.value }} {{ note.valueUnit }}</dd>
+        </dl>
+        <div>
+          <a class="btn btn-outline-primary" href="#" target="_blank">
+            <i class="" aria-hidden="true" ></i>
+            <span class=""> Claim This Note </span>
           </a>
-          <a
-            class="btn btn-outline-primary"
-            href="http://github.com/petervmeijgaard"
-            target="_blank"
-          >
-            <i
-              class="fa fa-github fa-fw"
-              aria-hidden="true"
-            ></i>
-            <span class="pl-2">
-              GitHub
-            </span>
-          </a>
-          <a
-            class="btn btn-outline-primary"
-            href="http://twitter.com/petervmeijgaard"
-            target="_blank"
-          >
-            <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
-            <span class="pl-2">
-              Twitter
-            </span>
-          </a>
-        </p>
-        <p>
-          For bugs, see:
-        </p>
-        <a
-          class="btn btn-outline-primary"
-          href="https://github.com/petervmeijgaard/vue-2.0-boilerplate/issues"
-          target="_blank"
-        >
-          <i class="fa fa-github fa-fw" aria-hidden="true"></i>
-          <span class="pl-2">
-            GitHub
-          </span>
-        </a>
-      </div>
-      <div slot="footer">
-        Made with love by Vivid Web
+        </div>
       </div>
     </v-card>
+    </div>
   </v-layout>
 </template>
 
